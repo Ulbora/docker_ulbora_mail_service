@@ -1,12 +1,12 @@
-# Docker Ulbora Image Service
-- 1.0.0, latest[ (Dockerfile)](https://github.com/Ulbora/docker_ulbora_image_service/blob/master/Dockerfile)
+# Docker Ulbora Mail Service
+- 1.0.0, latest[ (Dockerfile)](https://github.com/Ulbora/docker_ulbora_mail_service/blob/master/Dockerfile)
 
-This is Docker Image server running on Alpine
+This is Docker Mail server running on Alpine
 
 
 # Running
 ```
-docker run -p some-port:8080 --name images \
+docker run -p some-port:8080 --name mail \
 --env DATABASE_USER_NAME=some-user-name \
 --env DATABASE_USER_PASSWORD=some-user-password \
 --env DATABASE_NAME=some-db-name \
@@ -14,11 +14,11 @@ docker run -p some-port:8080 --name images \
 --env AUTHENTICATION_SERVICE=auth-server \
 --env PORT=8080 \
 --link some-mysql-container-name:mysql -it  \
-ulboralabs/images sh
+ulboralabs/mail sh
 ```
 #### or as a daemon (suggested)
 ```
-docker run -p some-port:8080 --name images \
+docker run -p some-port:8080 --name mail \
 --env DATABASE_USER_NAME=some-user-name \
 --env DATABASE_USER_PASSWORD=some-user-password \
 --env DATABASE_NAME=some-db-name \
@@ -26,7 +26,7 @@ docker run -p some-port:8080 --name images \
 --env AUTHENTICATION_SERVICE=auth-server \
 --env PORT=8080 \
 --link some-mysql-container-name:mysql -d  \
-ulboralabs/images sh
+ulboralabs/mail sh
 ```
 # Note
 ### The link to your mysql container should always end with :mysql as shown above
@@ -49,6 +49,6 @@ named MYSQL_PORT_3306_TCP_ADDR.
 
 # Connect to running instance
 ```
-docker exec -it ulboralabs/images sh
+docker exec -it ulboralabs/mail sh
 ```
 
